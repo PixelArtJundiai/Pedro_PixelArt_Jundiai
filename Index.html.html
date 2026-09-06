@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Pixel Art - Catálogo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      background: linear-gradient(90deg, #ffd700, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffd700;
+      color: #1a1a2e;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1em;
+      margin: 5px;
+    }
+
+    .encomenda {
+      background: linear-gradient(90deg, #ff6b6b, #ffd700);
+      color: #1a1a2e;
+      padding: 15px 30px;
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1em;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+
+    .encomenda span {
+      font-size: 1.5em;
+    }
+
+    /* Filtros */
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .filtro-btn {
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .filtro-btn:hover {
+      background: rgba(255, 215, 0, 0.2);
+      border-color: #ffd700;
+    }
+
+    .filtro-btn.ativo {
+      background: #ffd700;
+      color: #1a1a2e;
+      border-color: #ffd700;
+    }
+
+    /* Galeria */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .item {
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(255, 215, 0, 0.3);
+      border-color: #ffd700;
+    }
+
+    .item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      background: #fff;
+    }
+
+    .item-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .item-info h3 {
+      font-size: 1.15em;
+      margin-bottom: 8px;
+      color: #ffd700;
+    }
+
+    .item-info .preco {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #4ecdc4;
+    }
+
+    .item-info .tipo {
+      font-size: 0.85em;
+      color: #aaa;
+      margin-top: 4px;
+    }
+
+    .item-info .categoria-tag {
+      display: inline-block;
+      background: rgba(78, 205, 196, 0.2);
+      color: #4ecdc4;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.8em;
+      margin-top: 8px;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal.ativo { display: flex; }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(255,215,0,0.5);
+    }
+
+    .modal-fecha {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5em;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2em; }
+      .galeria { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+      .item img { height: 200px; }
+      .filtro-btn { font-size: 0.9em; padding: 8px 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎮 Pedro Pixel Art </h1>
+    <p>Chaveiros e peças feitas à mão com Hama Beads</p>
+    <div class="badge">💰 Preço único: R$ 10,00</div>
+
+    <div class="encomenda">
+      <span></span> Aceitamos encomendas! <span>🎨</span><br>
+      Quer uma peça personalizada? Fale com a gente!
+    </div>
+  </header>
+
+  <!-- Filtros de Categoria -->
+  <div class="filtros">
+    <button class="filtro-btn ativo" onclick="filtrar('todos')">Todos</button>
+    <button class="filtro-btn" onclick="filtrar('pokemon')">Pokémon</button>
+    <button class="filtro-btn" onclick="filtrar('disney')">Disney</button>
+    <button class="filtro-btn" onclick="filtrar('marvel-dc')">Marvel / DC</button>
+    <button class="filtro-btn" onclick="filtrar('games')">Games / Desenhos</button>
+    <button class="filtro-btn" onclick="filtrar('futebol')">Futebol</button>
+  </div>
+
+  <section class="galeria" id="galeria">
+
+    <!-- POKÉMON -->
+    <div class="item" data-categoria="pokemon" onclick="abrirModal(this)">
+      <img src="fotos/foto-3.jpg" alt="Charmander">
+      <div class="item-info">
+        <h3>Charmander</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Pokémon</div>
+      </div>
+    </div>
+
+    <div class="item" data-categoria="pokemon" onclick="abrirModal(this)">
+      <img src="fotos/foto-8.jpg" alt="Gengar">
+      <div class="item-info">
+        <h3>Gengar</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Peça decorativa</div>
+        <div class="categoria-tag">Pokémon</div>
+      </div>
+    </div>
+
+    <!-- DISNEY -->
+    <div class="item" data-categoria="disney" onclick="abrirModal(this)">
+      <img src="fotos/foto-1.jpg" alt="Stitch">
+      <div class="item-info">
+        <h3>Stitch</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Peça decorativa</div>
+        <div class="categoria-tag">Disney</div>
+      </div>
+    </div>
+
+    <div class="item" data-categoria="disney" onclick="abrirModal(this)">
+      <img src="fotos/foto-10.jpg" alt="Stitch Chaveiro">
+      <div class="item-info">
+        <h3>Stitch (Chaveiro)</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Disney</div>
+      </div>
+    </div>
+
+    <!-- MARVEL / DC -->
+    <div class="item" data-categoria="marvel-dc" onclick="abrirModal(this)">
+      <img src="fotos/foto-6.jpg" alt="Hulk">
+      <div class="item-info">
+        <h3>Hulk</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Peça decorativa</div>
+        <div class="categoria-tag">Marvel / DC</div>
+      </div>
+    </div>
+
+    <div class="item" data-categoria="marvel-dc" onclick="abrirModal(this)">
+      <img src="fotos/foto-9.jpg" alt="Coringa">
+      <div class="item-info">
+        <h3>Coringa</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Peça decorativa</div>
+        <div class="categoria-tag">Marvel / DC</div>
+      </div>
+    </div>
+
+    <!-- GAMES / DESENHOS -->
+    <div class="item" data-categoria="games" onclick="abrirModal(this)">
+      <img src="fotos/foto-2.jpg" alt="Among Us">
+      <div class="item-info">
+        <h3>Among Us</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Games / Desenhos</div>
+      </div>
+    </div>
+
+    <div class="item" data-categoria="games" onclick="abrirModal(this)">
+      <img src="fotos/foto-5.jpg" alt="Cacto">
+      <div class="item-info">
+        <h3>Cacto</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Games / Desenhos</div>
+      </div>
+    </div>
+
+    <div class="item" data-categoria="games" onclick="abrirModal(this)">
+      <img src="fotos/foto-7.jpg" alt="Cacto Verde">
+      <div class="item-info">
+        <h3>Cacto Verde</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Games / Desenhos</div>
+      </div>
+    </div>
+
+    <div class="item" data-categoria="games" onclick="abrirModal(this)">
+      <img src="fotos/foto-4.jpg" alt="Coração">
+      <div class="item-info">
+        <h3>Coração</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Ímã / Peça decorativa</div>
+        <div class="categoria-tag">Games / Desenhos</div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="modal" id="modal" onclick="fecharModal()">
+    <button class="modal-fecha">&times;</button>
+    <img id="modal-img" src="" alt="">
+  </div>
+
+  <footer>
+    <p> Jundiaí - SP | Feito com ❤️ pelo Pedro</p>
+    <p>Catálogo de peças artesanais em Hama Beads</p>
+  </footer>
+
+  <script>
+    function filtrar(categoria) {
+      const itens = document.querySelectorAll('.item');
+      const botoes = document.querySelectorAll('.filtro-btn');
+
+      botoes.forEach(btn => btn.classList.remove('ativo'));
+      event.target.classList.add('ativo');
+
+      itens.forEach(item => {
+        if (categoria === 'todos' || item.dataset.categoria === categoria) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function abrirModal(el) {
+      const img = el.querySelector('img');
+      document.getElementById('modal-img').src = img.src;
+      document.getElementById('modal').classList.add('ativo');
+    }
+
+    function fecharModal() {
+      document.getElementById('modal').classList.remove('ativo');
+    }
+  </script>
+
+</body>
+</html>

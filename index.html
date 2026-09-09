@@ -232,7 +232,7 @@
     <button class="filtro-btn" onclick="filtrar('disney')">Disney</button>
     <button class="filtro-btn" onclick="filtrar('marvel-dc')">Marvel / DC</button>
     <button class="filtro-btn" onclick="filtrar('games')">Games / Desenhos</button>
-    <button class="filtro-btn" onclick="filtrar('futebol')">Futebol</button>
+    <button class="filtro-btn" onclick="filtrar('futebol')">Variados</button>
   </div>
 
   <section class="galeria" id="galeria">
@@ -301,21 +301,41 @@
 
     <!-- MARVEL / DC -->
     <div class="item" data-categoria="marvel-dc" onclick="abrirModal(this)">
-      <img src="fotos/foto-6.jpg" alt="Hulk">
+      <img src="Img/Marvel - Hulk.jpg" alt="Hulk">
       <div class="item-info">
         <h3>Hulk</h3>
         <div class="preco">R$ 10,00</div>
-        <div class="tipo">Peça decorativa</div>
+        <div class="tipo">Imã Geladeira</div>
+        <div class="categoria-tag">Marvel / DC</div>
+      </div>
+    </div>
+
+     <div class="item" data-categoria="marvel-dc" onclick="abrirModal(this)">
+      <img src="Img/Marvel - Thor.jpg" alt="Thor">
+      <div class="item-info">
+        <h3>Thor</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Imã Geladeira</div>
         <div class="categoria-tag">Marvel / DC</div>
       </div>
     </div>
 
     <div class="item" data-categoria="marvel-dc" onclick="abrirModal(this)">
-      <img src="fotos/foto-9.jpg" alt="Coringa">
+      <img src="Img/Marvel - Groot.jpg" alt="Groot">
+      <div class="item-info">
+        <h3>Groot</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Imã Geladeira</div>
+        <div class="categoria-tag">Marvel / DC</div>
+      </div>
+    </div>
+    
+    <div class="item" data-categoria="marvel-dc" onclick="abrirModal(this)">
+      <img src="Img/DC - Coringa.jpg" alt="Coringa">
       <div class="item-info">
         <h3>Coringa</h3>
         <div class="preco">R$ 10,00</div>
-        <div class="tipo">Peça decorativa</div>
+        <div class="tipo">Imã Geladeira</div>
         <div class="categoria-tag">Marvel / DC</div>
       </div>
     </div>
@@ -362,15 +382,37 @@
     </div>
 
     <div class="item" data-categoria="games" onclick="abrirModal(this)">
-      <img src="fotos/foto-4.jpg" alt="Coração">
+      <img src="Img/Dragon Ball - Vegeta.jpg" alt="Vegeta">
       <div class="item-info">
-        <h3>Coração</h3>
+        <h3>Vegeta</h3>
         <div class="preco">R$ 10,00</div>
-        <div class="tipo">Ímã / Peça decorativa</div>
+        <div class="tipo">Chaveiro</div>
         <div class="categoria-tag">Games / Desenhos</div>
       </div>
     </div>
 
+ <!-- Variados -->
+    <div class="item" data-categoria="variados" onclick="abrirModal(this)">
+      <img src="Img/Variados - Cacto.jpg" alt="Cacto">
+      <div class="item-info">
+        <h3>Cacto</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Variados</div>
+      </div>
+    </div>
+
+    <div class="item" data-categoria="variados" onclick="abrirModal(this)">
+      <img src="Img/Variados - Coracao.jpg" alt="Coracao">
+      <div class="item-info">
+        <h3>Coracao</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Variados</div>
+      </div>
+    </div>
+    
+    
   </section>
 
   <div class="modal" id="modal" onclick="fecharModal()">

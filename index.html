@@ -216,7 +216,7 @@
 
   <header>
     <h1>🎮 Pedro Pixel Art </h1>
-    <p>Chaveiros e peças feitas à mão com Hama Beads</p>
+    <p>Chaveiros e peças feitas à mão com Hama Beads, Chaveiros, Imãs de Geledeira ou só coloecionáveis</p>
     <div class="badge">💰 Preços descritos em cada unidade</div>
 
     <div class="encomenda">
@@ -231,7 +231,7 @@
     <button class="filtro-btn" onclick="filtrar('pokemon')">Pokémon</button>
     <button class="filtro-btn" onclick="filtrar('disney')">Disney</button>
     <button class="filtro-btn" onclick="filtrar('marvel-dc')">Marvel / DC</button>
-    <button class="filtro-btn" onclick="filtrar('games')">Games / Desenhos</button>
+    <button class="filtro-btn" onclick="filtrar('games')">Games / Series / Desenhos</button>
     <button class="filtro-btn" onclick="filtrar('Variados')">Variados</button>
   </div>
 
@@ -277,12 +277,22 @@
         <div class="categoria-tag">Pokémon</div>
       </div>
     </div>
+
+       <div class="item" data-categoria="pokemon" onclick="abrirModal(this)">
+      <img src="Img/Pokemon - Pokebola.jpg" alt="Pokebola">
+      <div class="item-info">
+        <h3>Pokebola</h3>
+        <div class="preco">R$ 5,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Pokémon</div>
+      </div>
+    </div>
     
     <!-- DISNEY -->
     <div class="item" data-categoria="disney" onclick="abrirModal(this)">
-      <img src="Img/Disney - ReyRey.jpg" alt="Rey Rey">
+      <img src="Img/Disney - HeiHei.jpg" alt="Hei Hei">
       <div class="item-info">
-        <h3>Rey Rey (Moana)</h3>
+        <h3>Hei Hei (Moana)</h3>
         <div class="preco">R$ 10,00</div>
         <div class="tipo">Colecionavel</div>
         <div class="categoria-tag">Disney</div>
@@ -299,6 +309,15 @@
       </div>
     </div>
 
+    <div class="item" data-categoria="disney" onclick="abrirModal(this)">
+      <img src="Img/Disney - Toy Story.jpg" alt="Toy Story">
+      <div class="item-info">
+        <h3>Toy Story</h3>
+        <div class="preco">R$ 5,00 (cada)</div>
+        <div class="tipo">Imã Geladeira ou Chaveiro</div>
+        <div class="categoria-tag">Disney</div>
+      </div>
+    </div>
     <!-- MARVEL / DC -->
     <div class="item" data-categoria="marvel-dc" onclick="abrirModal(this)">
       <img src="Img/Marvel - Hulk.jpg" alt="Hulk">
@@ -347,17 +366,27 @@
         <h3>Mario - Bowser</h3>
         <div class="preco">R$ 15,00</div>
         <div class="tipo">Tag Mochila</div>
-        <div class="categoria-tag">Games / Desenhos</div>
+        <div class="categoria-tag">Games / Series/ Desenhos</div>
       </div>
     </div>
 
+      <div class="item" data-categoria="games" onclick="abrirModal(this)">
+      <img src="Img/Mario - Kamek.jpg" alt="Kamek">
+      <div class="item-info">
+        <h3>Mario - Kamek</h3>
+        <div class="preco">R$ 15,00</div>
+        <div class="tipo">Imã Geladeira</div>
+        <div class="categoria-tag">Games / Series / Desenhos</div>
+      </div>
+    </div>
+    
     <div class="item" data-categoria="games" onclick="abrirModal(this)">
       <img src="Img/Mario - Toad.jpg" alt="Toad">
       <div class="item-info">
         <h3>Mario - Toad</h3>
         <div class="preco">R$ 10,00</div>
         <div class="tipo">Imã Geladeira</div>
-        <div class="categoria-tag">Games / Desenhos</div>
+        <div class="categoria-tag">Games / Series / Desenhos</div>
       </div>
     </div>
     
@@ -367,7 +396,7 @@
         <h3>Megaman</h3>
         <div class="preco">R$ 10,00</div>
         <div class="tipo">Chaveiro</div>
-        <div class="categoria-tag">Games / Desenhos</div>
+        <div class="categoria-tag">Games / Series / Desenhos</div>
       </div>
     </div>
 
@@ -377,7 +406,7 @@
         <h3>Among Us</h3>
         <div class="preco">R$ 10,00</div>
         <div class="tipo">Chaveiro</div>
-        <div class="categoria-tag">Games / Desenhos</div>
+        <div class="categoria-tag">Games / Series / Desenhos</div>
       </div>
     </div>
 
@@ -387,16 +416,36 @@
         <h3>Vegeta</h3>
         <div class="preco">R$ 10,00</div>
         <div class="tipo">Chaveiro</div>
-        <div class="categoria-tag">Games / Desenhos</div>
+        <div class="categoria-tag">Games / Series / Desenhos</div>
       </div>
     </div>
 
+       <div class="item" data-categoria="games" onclick="abrirModal(this)">
+      <img src="Img/Series - Kiko (Chaves).jpg" alt="Kiko">
+      <div class="item-info">
+        <h3>Kiko (Chaves)</h3>
+        <div class="preco">R$ 10,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Games / Series / Desenhos</div>
+      </div>
+    </div>
+    
  <!-- Variados -->
     <div class="item" data-categoria="Variados" onclick="abrirModal(this)">
       <img src="Img/Variados - Cacto.jpg" alt="Cacto">
       <div class="item-info">
         <h3>Cacto</h3>
-        <div class="preco">R$ 10,00</div>
+        <div class="preco">R$ 6,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Variados</div>
+      </div>
+    </div>
+
+      <div class="item" data-categoria="Variados" onclick="abrirModal(this)">
+      <img src="Img/Variados - Cacto Kawaii.jpg" alt="Cacto Kawaii">
+      <div class="item-info">
+        <h3>Cacto Kawaii</h3>
+        <div class="preco">R$ 6,00</div>
         <div class="tipo">Chaveiro</div>
         <div class="categoria-tag">Variados</div>
       </div>
@@ -406,12 +455,21 @@
       <img src="Img/Variados - Coracao.jpg" alt="Coracao">
       <div class="item-info">
         <h3>Coracao</h3>
-        <div class="preco">R$ 10,00</div>
+        <div class="preco">R$ 5,00</div>
         <div class="tipo">Chaveiro</div>
         <div class="categoria-tag">Variados</div>
       </div>
     </div>
-    
+
+        <div class="item" data-categoria="Variados" onclick="abrirModal(this)">
+      <img src="Img/Variados - Lhama.jpg" alt="Lhama">
+      <div class="item-info">
+        <h3>Lhama</h3>
+        <div class="preco">R$ 5,00</div>
+        <div class="tipo">Chaveiro</div>
+        <div class="categoria-tag">Variados</div>
+      </div>
+    </div>
     
   </section>
 
